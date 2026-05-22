@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="TALERON">
+  <rect width="64" height="64" rx="8" fill="#1e418c"/>
+  <path fill="#ffffff" d="M16 14h32v8H36v28h-8V22H16z"/>
+  <path fill="#d2a523" d="M16 54h32v4H16z"/>
+</svg>

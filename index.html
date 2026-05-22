@@ -1,201 +1,322 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
-    <title>Your Company Name</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Playfair Display', serif;
-            line-height: 1.8;
-            color: #2c3e50;
-            background-color: #f5f0eb;
-            background-image: linear-gradient(135deg, #f5f0eb 0%, #e8e0d5 100%);
-            min-height: 100vh;
-        }
-
-        .header {
-            background: linear-gradient(to bottom, #ffffff, #f8f4f0);
-            box-shadow: 0 4px 12px rgba(139, 99, 71, 0.1);
-            padding: 2rem;
-            text-align: center;
-            position: relative;
-        }
-
-        .logo {
-            max-width: 220px;
-            height: auto;
-            transition: transform 0.3s ease;
-        }
-
-        .logo:hover {
-            transform: scale(1.02);
-        }
-
-        .content-wrapper {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 2rem;
-        }
-
-        .main-section {
-            max-width: 800px;
-            margin: 4rem auto;
-            padding: 2.5rem;
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: 12px;
-            box-shadow: 0 6px 24px rgba(139, 99, 71, 0.1);
-            border: 1px solid rgba(139, 99, 71, 0.1);
-        }
-
-        .main-section h1 {
-            color: #1a2634;
-            margin-bottom: 2rem;
-            font-size: 2.8rem;
-            font-weight: 600;
-            position: relative;
-            padding-bottom: 0.5rem;
-        }
-
-        .main-section p {
-            margin-bottom: 1.5rem;
-            font-size: 1.1rem;
-            color: #5d4637;
-            line-height: 1.8;
-        }
-
-        .secondary-sections {
-            display: flex;
-            gap: 2rem;
-            margin-bottom: 8rem; /* Space for footer */
-        }
-
-        .section-half {
-            flex: 1;
-            padding: 2.5rem;
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: 12px;
-            box-shadow: 0 6px 24px rgba(139, 99, 71, 0.1);
-            border: 1px solid rgba(139, 99, 71, 0.1);
-        }
-
-        .section-half h2 {
-            color: #1a2634;
-            margin-bottom: 1.5rem;
-            font-size: 2rem;
-            font-weight: 600;
-            position: relative;
-            padding-bottom: 0.5rem;
-        }
-
-        .section-half h2::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 40px;
-            height: 2px;
-            background: #8b6347;
-            border-radius: 2px;
-        }
-
-        .section-half p {
-            margin-bottom: 1.5rem;
-            font-size: 1.1rem;
-            color: #5d4637;
-            line-height: 1.8;
-        }
-
-        .footer {
-            background: linear-gradient(to bottom, #4a3728, #2c1810);
-            color: #f5f0eb;
-            text-align: center;
-            padding: 2rem;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-            box-shadow: 0 -4px 12px rgba(139, 99, 71, 0.2);
-        }
-
-        .footer p {
-            font-size: 0.9rem;
-            letter-spacing: 0.5px;
-        }
-
-        @media (max-width: 768px) {
-            .secondary-sections {
-                flex-direction: column;
-                gap: 1.5rem;
-            }
-
-            .section-half {
-                padding: 1.5rem;
-            }
-
-            .section-half h2 {
-                font-size: 1.8rem;
-            }
-
-            .main-section h1 {
-                font-size: 2.4rem;
-            }
-        }
-
-        /* Smooth scroll behavior */
-        html {
-            scroll-behavior: smooth;
-        }
-
-        /* Subtle animation for content */
-        .about-section {
-            animation: fadeIn 0.8s ease-in-out;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-    </style>
-</head>
-<body>
-    <header class="header">
-        <img src="your-logo.png" alt="Company Logo" class="logo">
+<!doctype html>
+<html lang="cs">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>TALERON | Dlouhodobý rozvoj průmyslových služeb</title>
+    <meta
+      name="description"
+      content="TALERON rozvíjí specializované služby pro průmysl, energetiku, průmyslové nemovitosti a kapitál s dlouhodobým investičním horizontem."
+    >
+    <meta name="theme-color" content="#1e418c">
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="styles.css">
+    <script src="scripts.js" defer></script>
+  </head>
+  <body>
+    <div class="scroll-progress" aria-hidden="true"></div>
+    <header class="site-header" aria-label="Hlavní navigace">
+      <a class="brand" href="#uvod" aria-label="TALERON úvod">
+        <img src="assets/taleron-logo.png" alt="TALERON">
+      </a>
+      <nav class="main-nav" aria-label="Navigace">
+        <a href="#vize">Vize</a>
+        <a href="#pilire">Pilíře</a>
+        <a href="#skupina">Skupina</a>
+        <a href="#kontakt">Kontakt</a>
+      </nav>
     </header>
 
-    <div class="content-wrapper">
-        <main class="main-section">
-            <h1>Náš Přístup</h1>
-            <p>Náš rodinný investiční fond je postaven na základech trvalých hodnot, jakými jsou poctivost, zodpovědnost a vytrvalost. Naším cílem je přispívat k pozitivnímu rozvoji společnosti  a zároveň zajistit kontinuitu a růst svěřeného kapitálu pro budoucí generace. Tyto principy formují veškeré naše strategické směřování a investiční rozhodování.</p>
-            <p>Působíme jako oddaní správci svěřeného kapitálu. Naším hlavním posláním je tento kapitál zodpovědně uchovávat a zhodnocovat s cílem předat jej v posíleném stavu dalším pokolením. Tato dlouhodobá perspektiva, charakterizovaná prakticky nekonečným investičním horizontem, řídí všechna naše investiční rozhodnutí a umožňuje nám soustředit se na udržitelný a trvalý růst, aniž bychom byli ovlivněni krátkodobými výkyvy.</p>
-            <p>Náš investiční přístup je aktivní a angažovaný. Investujeme do oblastí, kterým důkladně rozumíme, a naše portfolio spravujeme s pečlivostí, flexibilitou  a závazkem k neustálému učení a přizpůsobování se měnícím podmínkám. Věříme v obezřetnou diverzifikaci napříč různými typy aktiv, včetně účasti v soukromých podnicích, nemovitostních projektů, investic do energetiky a vybraných finančních nástrojů. Veškeré naše aktivity jsou vždy v souladu s našimi základními hodnotami a dlouhodobým posláním fondu.</p>
-        </main>
+    <main>
+      <section class="hero" id="uvod" aria-label="TALERON">
+        <div class="hero-media hero-graphic" aria-hidden="true">
+          <div class="hero-photo hero-photo-main"></div>
+          <div class="hero-photo hero-photo-industrial"></div>
+          <div class="hero-photo hero-photo-energy"></div>
+          <span class="graphic-line graphic-line-one"></span>
+          <span class="graphic-line graphic-line-two"></span>
+          <span class="graphic-line graphic-line-three"></span>
+        </div>
+        <div class="hero-shade" aria-hidden="true"></div>
+        <div class="hero-grid" aria-hidden="true"></div>
+        <div class="hero-scan" aria-hidden="true"></div>
+        <div class="hero-vision-map" aria-hidden="true">
+          <span class="map-node node-tech"></span>
+          <span class="map-node node-energy"></span>
+          <span class="map-node node-space"></span>
+          <span class="map-node node-capital"></span>
+          <span class="map-route route-one"></span>
+          <span class="map-route route-two"></span>
+          <span class="map-route route-three"></span>
+        </div>
+        <div class="hero-inner">
+          <p class="eyebrow">Privátní holding pro průmysl</p>
+          <h1>TALERON</h1>
+          <p class="hero-lead">
+            Rozvíjíme specializované služby pro průmysl, energetiku, areály a kapitál
+            s trpělivým horizontem a důrazem na provozní zkušenost.
+          </p>
+          <div class="vision-tags" aria-label="Strategické osy">
+            <span>Průmyslové služby</span>
+            <span>Energie</span>
+            <span>Prostor</span>
+            <span>Kapitál</span>
+          </div>
+          <div class="hero-actions" aria-label="Rychlé odkazy">
+            <a class="button button-primary" href="#vize">Naše vize</a>
+            <a class="button button-ghost" href="#kontakt">Kontakt</a>
+          </div>
+          <div class="hero-proof" aria-label="Oblasti skupiny">
+            <span>automatizace</span>
+            <span>areály</span>
+            <span>energie</span>
+          </div>
+        </div>
+      </section>
 
-        <section class="section-half" style="max-width: 800px; margin: 0 auto 8rem auto;">
-            <h2>Kontakt</h2>
-            <p>Email: <br>
-            Phone: <br>
-            Address: </p>
-        </section>
-    </div>
+      <section class="snapshot" aria-label="Základní fakta">
+        <div class="snapshot-item">
+          <span class="metric-number" data-count-to="24" data-suffix=" let">24 let</span>
+          <p>zkušeností v průmyslu, energetice a správě aktiv</p>
+        </div>
+        <div class="snapshot-item">
+          <span class="metric-number" data-count-to="4" data-suffix=" pilíře">4 pilíře</span>
+          <p>průmyslové služby, energetika, nemovitosti a investice</p>
+        </div>
+        <div class="snapshot-item">
+          <span class="metric-number" data-count-to="42000" data-suffix="+ m²">42 000+ m²</span>
+          <p>pronajímaných výrobních, skladových a kancelářských prostor</p>
+        </div>
+        <div class="snapshot-item">
+          <span class="metric-number" data-count-to="913" data-suffix=" kWp">913 kWp</span>
+          <p>fotovoltaická elektrárna v portfoliu skupiny</p>
+        </div>
+      </section>
 
-    <footer class="footer">
-        <p>&copy; 2025 All rights reserved.</p>
+      <section class="section vision-section" id="vize" aria-labelledby="vision-title" data-reveal>
+        <div class="section-copy">
+          <p class="eyebrow">Vize skupiny</p>
+          <h2 id="vision-title">Stavíme na zkušenosti, tradici a ochotě rozvíjet naše podnikání dlouhodobě.</h2>
+        </div>
+        <div class="vision-copy">
+          <p>
+            TALERON rozvíjí byznysy, kterým rozumí provozně i investičně. Nechceme stavět sdělení
+            na velkých slibech ani na pomíjivých trendech. Důležitější je pro nás kontinuita,
+            schopnost přebírat odpovědnost a kuráž posouvat jednotlivé společnosti krok za krokem.
+          </p>
+          <div class="principle-list" aria-label="Principy skupiny">
+            <span>Zkušenost v průmyslovém prostředí</span>
+            <span>Nekonečný investiční horizont</span>
+            <span>Dlouhodobé zlepšování provozu</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="section intro-section" aria-labelledby="intro-title" data-reveal>
+        <div class="section-copy">
+          <p class="eyebrow">Dlouhodobý přístup</p>
+          <h2 id="intro-title">Holding postavený na službách pro průmysl, areálech a řízeném kapitálu.</h2>
+        </div>
+        <div class="intro-text">
+          <p>
+            Skupina aktivně pracuje s portfoliem, řídí jednotlivé pilíře a klade důraz na stabilitu,
+            přiměřené riziko a dlouhodobou přítomnost v oborech, kterým rozumí.
+          </p>
+        </div>
+        <div class="intro-photo-grid" aria-hidden="true">
+          <span class="intro-photo intro-photo-one"></span>
+          <span class="intro-photo intro-photo-two"></span>
+          <span class="intro-photo-note">foto: areál / kanceláře / výroba</span>
+        </div>
+      </section>
+
+      <section class="section pillars-section" id="pilire" aria-labelledby="pillars-title" data-reveal>
+        <div class="section-heading">
+          <p class="eyebrow">Čtyři oblasti</p>
+          <h2 id="pillars-title">Pilíře, které se navzájem posilují</h2>
+        </div>
+        <div class="pillar-grid">
+          <article class="pillar-card" data-reveal>
+            <div class="pillar-visual visual-industry" aria-hidden="true"></div>
+            <div class="pillar-content">
+              <span class="pillar-number">01</span>
+              <h3>Specializované služby pro průmysl</h3>
+              <p>
+                B:TECH a MERCON dodávají průmyslovou automatizaci, robotizaci, elektrické pohony,
+                MaR a silnoproudé elektroinstalace pro zákazníky v Česku i zahraničí.
+              </p>
+            </div>
+          </article>
+
+          <article class="pillar-card" data-reveal>
+            <div class="pillar-visual visual-energy" aria-hidden="true"></div>
+            <div class="pillar-content">
+              <span class="pillar-number">02</span>
+              <h3>Energetika</h3>
+              <p>
+                Skupina provozuje fotovoltaickou elektrárnu a rozvíjí projekty pro podpůrné služby
+                výkonové rovnováhy a lokální distribuční soustavy.
+              </p>
+            </div>
+          </article>
+
+          <article class="pillar-card" data-reveal>
+            <div class="pillar-visual visual-estate" aria-hidden="true"></div>
+            <div class="pillar-content">
+              <span class="pillar-number">03</span>
+              <h3>Průmyslové nemovitosti</h3>
+              <p>
+                B:PARK rozvíjí a provozuje vlastní průmyslové areály v Havlíčkově Brodě, Přerově
+                a Ždírci nad Doubravou.
+              </p>
+            </div>
+          </article>
+
+          <article class="pillar-card" data-reveal>
+            <div class="pillar-visual visual-investment" aria-hidden="true"></div>
+            <div class="pillar-content">
+              <span class="pillar-number">04</span>
+              <h3>Finanční investice</h3>
+              <p>
+                TALERON Investment spravuje volné finanční prostředky skupiny a financuje rozvojové
+                projekty v rámci portfolia.
+              </p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section company-section" id="skupina" aria-labelledby="company-title" data-reveal>
+        <div class="section-heading">
+          <p class="eyebrow">Portfolio</p>
+          <h2 id="company-title">Portfolio jako živá mapa schopností</h2>
+        </div>
+
+        <div class="company-grid">
+          <article class="company-card" data-reveal>
+            <div class="company-logo">
+              <img src="assets/btech-logo.png" alt="B:TECH">
+            </div>
+            <h3>B:TECH</h3>
+            <p>
+              Dodavatel průmyslové automatizace, robotizace, řízení budov a servisní podpory 24/7.
+              Na trhu působí od roku 2000.
+            </p>
+            <a href="https://www.btech.cz/" target="_blank" rel="noreferrer">btech.cz</a>
+          </article>
+
+          <article class="company-card" data-reveal>
+            <div class="company-logo">
+              <img src="assets/mercon-logo.png" alt="MERCON">
+            </div>
+            <h3>MERCON</h3>
+            <p>
+              Elektroinženýrské projekty, MaR, automatizace, frekvenční měniče a servis pro
+              průmyslové provozy s více než 30 lety zkušeností.
+            </p>
+            <a href="https://www.mercon.cz/" target="_blank" rel="noreferrer">mercon.cz</a>
+          </article>
+
+          <article class="company-card" data-reveal>
+            <div class="company-logo">
+              <img src="assets/bpark-logo.png" alt="B:PARK">
+            </div>
+            <h3>B:PARK PRO</h3>
+            <p>
+              Development a dlouhodobý provoz průmyslových areálů. Portfolio zahrnuje 6 lokalit
+              a další připravované prostory k pronájmu.
+            </p>
+            <a href="https://www.bpark.pro/" target="_blank" rel="noreferrer">bpark.pro</a>
+          </article>
+
+          <article class="company-card" data-reveal>
+            <div class="company-logo">
+              <img src="assets/awax-solar-logo.jpg" alt="AWAX Solar">
+            </div>
+            <h3>AWAX Solar</h3>
+            <p>
+              Projekt fotovoltaické elektrárny o výkonu 913 kWp uvedené do provozu v roce 2010.
+            </p>
+          </article>
+
+          <article class="company-card" data-reveal>
+            <div class="company-logo">
+              <img src="assets/awax-energy-logo.png" alt="AWAX Energy">
+            </div>
+            <h3>AWAX Energy</h3>
+            <p>
+              Provoz lokálních distribučních soustav v průmyslových areálech a služby výkonové
+              rovnováhy pro ČEPS.
+            </p>
+            <a href="https://www.awax.cz/" target="_blank" rel="noreferrer">awax.cz</a>
+          </article>
+
+          <article class="company-card" data-reveal>
+            <div class="company-logo">
+              <img src="assets/taleron-investment-logo.png" alt="TALERON Investment">
+            </div>
+            <h3>TALERON Investment</h3>
+            <p>
+              Správa volných finančních prostředků skupiny a financování rozvojových projektů
+              uvnitř portfolia.
+            </p>
+          </article>
+
+          <article class="company-card company-card-wide" data-reveal>
+            <div class="company-logo">
+              <img src="assets/taleron-consulting-logo.png" alt="TALERON Consulting">
+            </div>
+            <h3>TALERON Consulting</h3>
+            <p>
+              Manažerské, finanční, IT a provozní služby pro společnosti skupiny, včetně podpory
+              digitalizace interních procesů.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="focus-band" aria-label="Strategie skupiny" data-reveal>
+        <div class="focus-graphic" aria-hidden="true">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <div>
+          <p class="eyebrow">Stabilita a růst</p>
+          <h2>Růst stavíme tam, kde máme vlastní zkušenost, data a dlouhodobou kontrolu nad aktivem.</h2>
+          <p>
+            Od technického řešení přes energetiku až po průmyslový areál: TALERON propojuje obory,
+            které se vzájemně podporují a dávají skupině pevnější základ pro další rozvoj.
+          </p>
+        </div>
+      </section>
+
+      <section class="contact-section" id="kontakt" aria-labelledby="contact-title" data-reveal>
+        <div class="contact-inner">
+          <div>
+            <p class="eyebrow">Kontakt</p>
+            <h2 id="contact-title">TALERON, a.s.</h2>
+            <p class="contact-lead">
+              U Borové 69, 580 01 Havlíčkův Brod
+            </p>
+          </div>
+          <div class="contact-list" aria-label="Kontaktní údaje">
+            <a href="tel:+420724532150">+420 724 532 150</a>
+            <a href="mailto:info@taleron.cz">info@taleron.cz</a>
+            <a href="https://www.google.com/maps/place/49.599664,+15.573765" target="_blank" rel="noreferrer">Zobrazit na mapě</a>
+          </div>
+          <div class="company-meta">
+            <span>IČ: 28905181</span>
+            <span>DIČ: CZ28905181</span>
+            <span>Datová schránka: rqndwj7</span>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <span>© TALERON, a.s.</span>
+      <a href="#uvod">Zpět nahoru</a>
     </footer>
-</body>
-</html> 
+  </body>
+</html>
